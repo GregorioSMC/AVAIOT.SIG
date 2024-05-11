@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVAIOT.SIG", "AVAIOT.SIG\AV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIG.Data", "SIG.Data\SIG.Data.csproj", "{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIG.ModeloDeNegocios", "SIG.ModeloDeNegocios\SIG.ModeloDeNegocios.csproj", "{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

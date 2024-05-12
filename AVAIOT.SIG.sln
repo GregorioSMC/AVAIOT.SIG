@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVAIOT.SIG", "AVAIOT.SIG\AVAIOT.SIG.csproj", "{B7FD8536-8E2C-46AD-9F83-066C9151ABD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVAIOT.SIG", "AVAIOT.SIG\AVAIOT.SIG.csproj", "{B7FD8536-8E2C-46AD-9F83-066C9151ABD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIG.Data", "SIG.Data\SIG.Data.csproj", "{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIG.Data", "SIG.Data\SIG.Data.csproj", "{07A82EF2-67EF-4DA6-9B0A-C7B6331E1F83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIG.ModeloDeNegocios", "SIG.ModeloDeNegocios\SIG.ModeloDeNegocios.csproj", "{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIG.ModeloDeNegocios", "SIG.ModeloDeNegocios\SIG.ModeloDeNegocios.csproj", "{D2B618ED-F871-4BD2-8AD0-C9FBAA03D01F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

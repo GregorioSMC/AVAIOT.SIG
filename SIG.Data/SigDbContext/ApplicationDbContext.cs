@@ -18,9 +18,10 @@ namespace SIG.Data.SigDbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
         }
 
-        public DbSet<EUsuario> Usuarios { get; set; }
-        public DbSet<ECatalogoUsuarios> catalogoUsuarios { get; set; }
+        public DbSet<EUsuarios> Usuarios { get; set; }
+        public DbSet<ECatalogoRolesUsuarios> catalogoUsuarios { get; set; }
     }
 }

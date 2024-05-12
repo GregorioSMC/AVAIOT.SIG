@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SIG.Data\SIG.Data.csproj" />
+    <ProjectReference Include="..\SIG.ModeloDeNegocios\SIG.ModeloDeNegocios.csproj" />
   </ItemGroup>
 
 </Project>

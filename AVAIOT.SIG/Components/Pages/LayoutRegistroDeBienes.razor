@@ -1,0 +1,34 @@
+﻿@page "/RegistroDeBienes"
+@using Radzen
+@using Radzen.Blazor
+@using AVAIOT.SIG.Components.Layout
+
+<PageTitle>Registro de Bienes</PageTitle>
+
+<div>
+    <NavMenu />
+</div>
+
+<div class="container">
+
+    <RadzenDataGrid @ref=grid AllowFiltering="true" AllowColumnResize="true"
+                    FilterMode="FilterMode.Simple" PageSize="5"
+                    AllowPaging="true" AllowSorting="true" Data="@registroDeBienes" ColumnWidth="300px"
+                    FilterCaseSensitivity="@filterCaseSensitivity" LogicalFilterOperator="@logicalFilterOperator">
+        <Columns>
+            <RadzenDataGridColumn Property="Id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn Property="NumeroDeInventario" Title="Numero De Inventario" />
+            <RadzenDataGridColumn Property="Descripcion" Title="Descripcion" />
+            <RadzenDataGridColumn Property="Marca" Title="Marca" />
+            <RadzenDataGridColumn Property="TipoDeBien" Title="TipoDeBien" />
+            <RadzenDataGridColumn Property="Situacion" Title="Situacion" />
+            <RadzenDataGridColumn Property="NombreDependencia" Title="Dependecia" />
+            <RadzenDataGridColumn Property="NombreDepartamento" Title="Departamento" />
+            <RadzenDataGridColumn Property="Observaciones" Title="Observaciones" />
+            <RadzenDataGridColumn Property="UUID" Title="Factura" />
+            <RadzenDataGridColumn Property="NumeroSerie" Title="Serie" />
+            <RadzenDataGridColumn Property="NombreEmpleado" Title="Responsable" />
+        </Columns>
+    </RadzenDataGrid>
+
+</div>

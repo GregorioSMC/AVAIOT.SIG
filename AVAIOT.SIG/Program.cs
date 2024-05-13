@@ -1,6 +1,10 @@
 using AVAIOT.SIG.Components;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SIG.Data.SigDbContext;
+using Microsoft.Extensions.DependencyInjection;
+using Radzen.Blazor;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +16,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+// Habilitar la interactividad para toda la aplicación
+
 
 var app = builder.Build();
 

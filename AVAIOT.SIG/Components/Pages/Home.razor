@@ -1,12 +1,16 @@
 ﻿@page "/Home"
+@using Radzen.Blazor
 @using AVAIOT.SIG.Components.Layout
 
 
-
-<NavMenu />
-
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<NavMenu />
+<div class="container">
+    <div class="rz-p-12">        
+        <RadzenText TextStyle="TextStyle.DisplayH2">SIG</RadzenText>        
+        <RadzenText TextStyle="TextStyle.DisplayH5">Sistema de Inventarios Gubernamentales</RadzenText>
+    </div>
+</div>
 
-Welcome to your new app.
+

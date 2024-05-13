@@ -1,7 +1,10 @@
 ﻿@page "/RegistroDeBienes"
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 @using Radzen
 @using Radzen.Blazor
 @using AVAIOT.SIG.Components.Layout
+@using global::SIG.ModeloDeNegocios.ModeloDeNegocios
 
 <PageTitle>Registro de Bienes</PageTitle>
 
@@ -9,26 +12,80 @@
     <NavMenu />
 </div>
 
-<div class="container">
 
-    <RadzenDataGrid @ref=grid AllowFiltering="true" AllowColumnResize="true"
-                    FilterMode="FilterMode.Simple" PageSize="5"
-                    AllowPaging="true" AllowSorting="true" Data="@registroDeBienes" ColumnWidth="300px"
-                    FilterCaseSensitivity="@filterCaseSensitivity" LogicalFilterOperator="@logicalFilterOperator">
+<div class="container">
+    <RadzenRow Gap="4rem" Class="rz-p-0 rz-p-lg-4">
+        <RadzenColumn Size="12" SizeMD="12">
+            <RadzenStack>
+                <RadzenFieldset Text="Bienes Muebles">
+                    <RadzenStack Gap="1rem">
+                        <RadzenRow AlignItems="AlignItems.Center">
+                            <RadzenColumn Size="12" SizeMD="9">
+                                <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                    <RadzenButton ButtonStyle="ButtonStyle.Info" Icon="info" Text="Generar Etiqueta"></RadzenButton>
+                                    <RadzenButton ButtonStyle="ButtonStyle.Info" Icon="info" Text="Filtros"></RadzenButton>
+                                    <RadzenButton ButtonStyle="ButtonStyle.Info" Icon="info" Text="Carga Masiva"></RadzenButton>
+                                    <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="info" Text="Nuevo Bien" Click="CrearNuevoBien"></RadzenButton>
+                                </RadzenStack>
+                            </RadzenColumn>
+                        </RadzenRow>
+                    </RadzenStack>
+                </RadzenFieldset>
+
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+@* 
+    <RadzenGrid TItem="RegistroDeBienes"
+                Data="@registroDeBienes"
+                AllowFiltering="true"
+                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                FilterMode="FilterMode.Simple"
+                AllowPaging="true"
+                PageSize="4"
+                AllowSorting="true"
+                ColumnWidth="200px">
         <Columns>
-            <RadzenDataGridColumn Property="Id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
-            <RadzenDataGridColumn Property="NumeroDeInventario" Title="Numero De Inventario" />
-            <RadzenDataGridColumn Property="Descripcion" Title="Descripcion" />
-            <RadzenDataGridColumn Property="Marca" Title="Marca" />
-            <RadzenDataGridColumn Property="TipoDeBien" Title="TipoDeBien" />
-            <RadzenDataGridColumn Property="Situacion" Title="Situacion" />
-            <RadzenDataGridColumn Property="NombreDependencia" Title="Dependecia" />
-            <RadzenDataGridColumn Property="NombreDepartamento" Title="Departamento" />
-            <RadzenDataGridColumn Property="Observaciones" Title="Observaciones" />
-            <RadzenDataGridColumn Property="UUID" Title="Factura" />
-            <RadzenDataGridColumn Property="NumeroSerie" Title="Serie" />
-            <RadzenDataGridColumn Property="NombreEmpleado" Title="Responsable" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="NumeroDeInventario" Title="Numero De Inventario" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="Descripcion" Title="Descripcion" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="Marca" Title="Marca" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="TipoDeBien" Title="TipoDeBien" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="Situacion" Title="Situacion" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreDependencia" Title="Dependecia" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreDepartamento" Title="Departamento" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="Observaciones" Title="Observaciones" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="UUID" Title="Factura" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="NumeroSerie" Title="Serie" />
+            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreEmpleado" Title="Responsable" />
         </Columns>
-    </RadzenDataGrid>
+    </RadzenGrid> *@
+
+    
 
 </div>
+<RadzenDataGrid @ref=grid
+                AllowFiltering="true"
+                AllowColumnResize="true"
+                FilterMode="Radzen.FilterMode.Simple"
+                PageSize="5"
+                AllowPaging="true"
+                AllowSorting="true"
+                Data="@registroDeBienes"
+                ColumnWidth="300px"
+                FilterCaseSensitivity="@filterCaseSensitivity"
+                LogicalFilterOperator="@logicalFilterOperator">
+    <Columns>
+        <RadzenDataGridColumn Property="Id" Filterable="false" Title="ID" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
+        <RadzenDataGridColumn Property="NumeroDeInventario" Title="Numero De Inventario" />
+        <RadzenDataGridColumn Property="Descripcion" Title="Descripcion" />
+        <RadzenDataGridColumn Property="Marca" Title="Marca" />
+        <RadzenDataGridColumn Property="TipoDeBien" Title="TipoDeBien" />
+        <RadzenDataGridColumn Property="Situacion" Title="Situacion" />
+        <RadzenDataGridColumn Property="NombreDependencia" Title="Dependecia" />
+        <RadzenDataGridColumn Property="NombreDepartamento" Title="Departamento" />
+        <RadzenDataGridColumn Property="Observaciones" Title="Observaciones" />
+        <RadzenDataGridColumn Property="UUID" Title="Factura" />
+        <RadzenDataGridColumn Property="NumeroSerie" Title="Serie" />
+        <RadzenDataGridColumn Property="NombreEmpleado" Title="Responsable" />
+    </Columns>
+</RadzenDataGrid>

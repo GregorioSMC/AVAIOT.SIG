@@ -35,34 +35,8 @@
             </RadzenStack>
         </RadzenColumn>
     </RadzenRow>
-@* 
-    <RadzenGrid TItem="RegistroDeBienes"
-                Data="@registroDeBienes"
-                AllowFiltering="true"
-                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
-                FilterMode="FilterMode.Simple"
-                AllowPaging="true"
-                PageSize="4"
-                AllowSorting="true"
-                ColumnWidth="200px">
-        <Columns>
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="NumeroDeInventario" Title="Numero De Inventario" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="Descripcion" Title="Descripcion" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="Marca" Title="Marca" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="TipoDeBien" Title="TipoDeBien" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="Situacion" Title="Situacion" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreDependencia" Title="Dependecia" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreDepartamento" Title="Departamento" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="Observaciones" Title="Observaciones" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="UUID" Title="Factura" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="NumeroSerie" Title="Serie" />
-            <RadzenGridColumn TItem="RegistroDeBienes" Property="NombreEmpleado" Title="Responsable" />
-        </Columns>
-    </RadzenGrid> *@
 
-    
 
-</div>
 <RadzenDataGrid @ref=grid
                 AllowFiltering="true"
                 AllowColumnResize="true"
@@ -89,3 +63,4 @@
         <RadzenDataGridColumn Property="NombreEmpleado" Title="Responsable" />
     </Columns>
 </RadzenDataGrid>
+</div>

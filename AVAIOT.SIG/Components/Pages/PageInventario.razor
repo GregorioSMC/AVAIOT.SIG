@@ -1,0 +1,34 @@
+﻿@page "/Inventario"
+@using AVAIOT.SIG.Components.Layout
+<PageTitle>Inventario</PageTitle>
+
+<div>
+    <NavMenu />
+</div>
+
+<div class="container">
+    <RadzenText TextStyle="TextStyle.DisplayH5">Inventarios </RadzenText>
+    <RadzenDataGrid @ref=grid
+                AllowFiltering="true"
+                AllowColumnResize="true"
+                FilterMode="Radzen.FilterMode.Simple"
+                PageSize="5"
+                AllowPaging="true"
+                AllowSorting="true"
+                Data="@inventario"
+                ColumnWidth="150px"
+                FilterCaseSensitivity="@filterCaseSensitivity"
+                LogicalFilterOperator="@logicalFilterOperator">
+    <Columns>            
+            <RadzenDataGridColumn Property="NumeroDeControl" Title="Numero De Control" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn Property="NombreEmpleado" Title="Nombre" />
+            <RadzenDataGridColumn Property="Puesto" Title="Puesto" />
+            <RadzenDataGridColumn Property="Departamento" Title="Departamento" />
+            <RadzenDataGridColumn Property="Dependencia" Title="Dependencia" />
+            <RadzenDataGridColumn Property="Ubicacion" Title="Ubicacion" />
+    </Columns>
+</RadzenDataGrid>
+</div>
+@code {
+
+}

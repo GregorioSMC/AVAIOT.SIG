@@ -22,18 +22,11 @@
             <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="RegistroDeBienes" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> BIENES MUEBLES
-                        </NavLink>
-                    </li>
-                    <li class="nav-item">
-                        <RadzenMenu Click="OnParentClicked">
-                            <RadzenMenuItem Text="General" Icon="home">
-                                <RadzenMenuItem Text="Buttons" Path="buttons" Icon="account_circle"></RadzenMenuItem>
-                                <RadzenMenuItem Text="Menu" Path="menu" Icon="line_weight" Disabled="true"></RadzenMenuItem>
-                                <RadzenMenuItem Click="OnChildClicked" Text="ChildClick" Icon="attach_file" Disabled="true"></RadzenMenuItem>
-                                <RadzenMenuItem Text="Dialog" Path="dialog" Icon="perm_media"></RadzenMenuItem>
-                                <RadzenMenuItem Text="Notification" Path="notification" Icon="announcement"></RadzenMenuItem>
+                        <RadzenMenu Click="OnParentClicked" Style="background-color: #6d0c2e;">
+                            <RadzenMenuItem Text="BIENES MUEBLES" Icon="">
+                                <RadzenMenuItem Text="ACTIVOS" Path="RegistroDeBienes" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CON BAJA" Path="RegistroDeBienes" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="NUEVO BIEN" Path="NuevoBien" Icon=""></RadzenMenuItem>
                             </RadzenMenuItem>
                         </RadzenMenu>
                     </li>
@@ -43,7 +36,7 @@
                         </NavLink>
                     </li>
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Home">
+                        <NavLink class="nav-link" href="Inventario">
                             <span class="oi oi-list-rich" aria-hidden="true"></span> INVENTARIOS
                         </NavLink>
                     </li>
@@ -53,15 +46,30 @@
                         </NavLink>
                     </li>
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Home">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> INFORMACIÓN DEL ENTE
-                        </NavLink>
+                        <RadzenMenu Click="OnParentClicked" Style="background-color: #6d0c2e;">
+                            <RadzenMenuItem Text="INFORMACIÓN DEL ENTE" Icon="">
+                                <RadzenMenuItem Text="CÁTALOGO PERFIL DE USUARIO" Path="Home" Icon=""></RadzenMenuItem>                                
+                                <RadzenMenuItem Text="CÁTALOGO DE UUSUARIOS" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE TIPOS DE DEPENDECIAS" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE DEPENDECIAS" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE UBICACIONES" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE DEPARTAMENTOS" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE RESPONSABLES" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="CÁTALOGO DE TIPO DE BIENES" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="INFORMACIÓN DEL ENTE" Path="Home" Icon=""></RadzenMenuItem>
+                            </RadzenMenuItem>
+                        </RadzenMenu>
                     </li>
+
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="Home">
-                            <span class="oi oi-list-rich" aria-hidden="true"></span> INFORMACIÓN SISTEMA
-                        </NavLink>
-                    </li>
+                        <RadzenMenu Click="OnParentClicked" Style="background-color: #6d0c2e;">
+                            <RadzenMenuItem Text="INFORMACIÓN SISTEMA" Icon="">
+                                <RadzenMenuItem Text="CUENTAS COG" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="TABLA DE DEPRECIACIÓN" Path="Home" Icon=""></RadzenMenuItem>
+                                <RadzenMenuItem Text="TIPO DE ADQUISICIÓN" Path="Home" Icon=""></RadzenMenuItem>
+                            </RadzenMenuItem>
+                        </RadzenMenu>
+                    </li> 
                 </ul>
             </div>
         </div>

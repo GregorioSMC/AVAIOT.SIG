@@ -1,5 +1,285 @@
 ﻿@page "/NuevoBien"
-<h3>PageNuevoBien</h3>
+@using AVAIOT.SIG.Components.Layout
+@using global::SIG.ModeloDeNegocios.ModeloDeNegocios
+
+<PageTitle>Nuevo Bien</PageTitle>
+
+<div>
+    <NavMenu />
+</div>
+
+<div class="container">
+
+    <RadzenText TextStyle="TextStyle.H4">INFORMACIÓN DEL BIEN </RadzenText>
+        
+    <RadzenTemplateForm Data="@registroBien" Submit="@((RegistroNuevoBien args) => { Submit(args); })">
+        <RadzenRow Gap="2rem" Class="rz-p-0 rz-p-lg-4">
+            <RadzenColumn Size="12" SizeMD="12">
+                <RadzenStack>
+                    <RadzenFieldset Text="UBICACIÓN Y RESPONSABLE">
+                  
+                      
+                         <RadzenStack Gap="1rem">
+
+                                                       
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Dependencia" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9">
+                                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                        <RadzenDropDownDataGrid @bind-Value=@valueDependencia Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                                AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns" Style="width:  100%;">
+                                            <Columns>
+                                                <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                                <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                            </Columns>
+                                        </RadzenDropDownDataGrid>
+                                    </RadzenStack>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Departamento" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9">
+                                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                        <RadzenDropDownDataGrid @bind-Value=@valueDepartamento Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                                AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns" Style="width:  100%;">
+                                            <Columns>
+                                                <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                                <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                            </Columns>
+                                        </RadzenDropDownDataGrid>
+                                    </RadzenStack>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Responsable" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenDropDownDataGrid @bind-Value=@valueDepartamento Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                            AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns">
+                                        <Columns>
+                                            <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                            <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                        </Columns>
+                                    </RadzenDropDownDataGrid>
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Es vehiculo" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenRadioButtonList @bind-Value=@valueEsVehiculo TValue="int" class="mb-5">
+                                        <Items>
+                                            <RadzenRadioButtonListItem Text="Si" Value="1" />                                            
+                                            <RadzenRadioButtonListItem Text="No" Value="2" />
+                                        </Items>
+                                    </RadzenRadioButtonList>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Tipo de adquisicion" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenDropDownDataGrid @bind-Value=@valueDepartamento Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                            AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns">
+                                        <Columns>
+                                            <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                            <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                        </Columns>
+                                    </RadzenDropDownDataGrid>
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Estado" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenDropDownDataGrid @bind-Value=@valueDepartamento Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                            AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns">
+                                        <Columns>
+                                            <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                            <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                        </Columns>
+                                    </RadzenDropDownDataGrid>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Tipo de bien" Component="DropDownDataGridColumns" Style="margin-right: 8px; vertical-align: middle;" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenDropDownDataGrid @bind-Value=@valueDepartamento Data=@catalogoDependecias TextProperty="Nombre" ValueProperty="Nombre"
+                                                            AllowColumnResize="true" AllowFilteringByAllStringColumns="true" Name="DropDownDataGridColumns">
+                                        <Columns>
+                                            <RadzenDropDownDataGridColumn Property="Id" Title="ID" Width="100px" />
+                                            <RadzenDropDownDataGridColumn Property="Nombre" Title="Nombre" Width="200px" />
+                                        </Columns>
+                                    </RadzenDropDownDataGrid>
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">                                   
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">                                    
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+
+                            <RadzenRow AlignItems="AlignItems.Center">                                
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Fecha de Adquisición" Component="FechaAdquisicion" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="FechaAdquisicion" />
+                                </RadzenColumn>                                
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Fecha Factura" Component="FechaFactura" />
+                                </RadzenColumn>                                 
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="FechaFactura" />
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Monto original de la inversión" Component="MontoOriginal" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="MontoOriginal" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Fecha de Registro" Component="FechaRegistro" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="FechaRegistro" />
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            </RadzenStack>
+                           
+                    </RadzenFieldset>
+                </RadzenStack>
+            </RadzenColumn>
+        </RadzenRow>
+    </RadzenTemplateForm>
+
+    <RadzenTemplateForm Data="@registroBien" Submit="@((RegistroNuevoBien args) => { Submit(args); })">
+        <RadzenRow Gap="2rem" Class="rz-p-0 rz-p-lg-4">
+            <RadzenColumn Size="12" SizeMD="12">
+                <RadzenStack>
+                    <RadzenFieldset Text="DETALLES Y CARACTERISTICAS">                        
+
+                        <RadzenStack Gap="1rem">
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Fondo" Component="Fondo" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Fondo" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Color" Component="Color" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Color" />
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Modelo" Component="Modelo" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9">
+                                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                        <RadzenTextBox Placeholder="" Style="width:  100%;" Name="Modelo" />
+                                    </RadzenStack>
+                                </RadzenColumn>
+                            </RadzenRow>
+                            
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Marca" Component="Marca" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Marca" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Serie" Component="Serie" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Serie" />
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Factura" Component="Factura" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Factura" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3" Class="rz-text-align-md-end">
+                                    <RadzenLabel Text="Proveedor" Component="Proveedor" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenTextBox Disabled="false" Placeholder="" Style="width: 100%;" Name="Proveedor" />
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+                             <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Descripcion" Component="Descripcion" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9">
+                                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                        <RadzenTextBox Placeholder="" Style="width:  100%;" Name="Descripcion" />
+                                    </RadzenStack>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+                            <RadzenRow AlignItems="AlignItems.Center">
+                                <RadzenColumn Size="12" SizeMD="3">
+                                    <RadzenLabel Text="Observaciones" Component="Observaciones" />
+                                </RadzenColumn>
+                                <RadzenColumn Size="12" SizeMD="9">
+                                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">
+                                        <RadzenTextBox Placeholder="" Style="width:  100%;" Name="Observaciones" />
+                                    </RadzenStack>
+                                </RadzenColumn>
+                            </RadzenRow>
+
+
+                        </RadzenStack>
+
+                    </RadzenFieldset>
+                </RadzenStack>
+            </RadzenColumn>
+        </RadzenRow>
+    </RadzenTemplateForm>
+
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Center" Gap="1rem" Class="rz-mt-8 rz-mb-4">
+        <RadzenButton ButtonType="ButtonType.Submit" Size="ButtonSize.Large" Icon="save" Text="Guardar" />
+        <RadzenButton ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Large" Icon="cancel" Text="Cancelar" Click="@Cancel" />
+    </RadzenStack>
+
+</div>
+
+
 
 @code {
 

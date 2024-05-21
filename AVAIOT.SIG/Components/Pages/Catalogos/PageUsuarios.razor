@@ -1,0 +1,32 @@
+﻿@page "/Usuarios"
+@using AVAIOT.SIG.Components.Layout
+@using global::SIG.ModeloDeNegocios.ModeloDeNegocios
+
+<PageTitle>usuarios</PageTitle>
+
+<div>
+    <NavMenu />
+</div>
+
+<div class="container">
+    <RadzenText TextStyle="TextStyle.DisplayH5">Inventarios </RadzenText>
+    <RadzenDataGrid @ref=grid
+                    AllowFiltering="true"
+                    AllowColumnResize="true"
+                    FilterMode="Radzen.FilterMode.Simple"
+                    PageSize="5"
+                    AllowPaging="true"
+                    AllowSorting="true"
+                    Data="@usuarios"
+                    ColumnWidth="150px"
+                    FilterCaseSensitivity="@filterCaseSensitivity"
+                    LogicalFilterOperator="@logicalFilterOperator">
+        <Columns>
+            <RadzenDataGridColumn Property="Id" Title="Id" Frozen="true" Width="80px" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn Property="Nombre" Title="Nombre" />
+            <RadzenDataGridColumn Property="ApellidoPaterno" Title="Apellido Paterno" />
+            <RadzenDataGridColumn Property="ApellidoMaterno" Title="Apellido Materno" />
+            <RadzenDataGridColumn Property="EsActivo" Title="Activo" />
+        </Columns>
+    </RadzenDataGrid>
+</div>

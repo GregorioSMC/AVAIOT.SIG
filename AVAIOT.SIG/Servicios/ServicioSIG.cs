@@ -1,22 +1,28 @@
 ﻿using AVAIOT.SIG.Servicios.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using SIG.Data.Entidades;
 using SIG.Data.Repositorio.Interfaz;
+using SIG.Data.SigDbContext;
 using SIG.ModeloDeNegocios.ModeloDeNegocios;
 
 namespace AVAIOT.SIG.Servicios
 {
     public class ServicioSIG : IServicioSIG
     {
-        
-        public readonly IRepositorioSIG _repositorio;
-   
-        public ServicioSIG(IRepositorioSIG repositorio)
-        {
-            _repositorio = repositorio;
-        }   
 
-        public List<RegistroDeBienes> ObtenerRegistroDeBienesAsync()
+        private readonly IRepositorioSIG _repositorioSIG;
+        private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
+
+        public ServicioSIG(IRepositorioSIG repositorioSIG, IDbContextFactory<ApplicationDbContext> contextFactory)
         {
-            return _repositorio.ObtenerRegistroDeBienesAsync();
+            _repositorioSIG = repositorioSIG ?? throw new ArgumentNullException(nameof(repositorioSIG));
+            _contextFactory = contextFactory ?? throw new ArgumentNullException(nameof(contextFactory));
+        }
+
+
+        public async Task<List<Usuarios>> ObtenerUsuariosAsync() 
+        {
+            return await _repositorioSIG.ObtenerUsuariosAsync();
         }
     }
 }

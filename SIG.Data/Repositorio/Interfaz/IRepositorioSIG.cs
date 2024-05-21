@@ -1,4 +1,5 @@
-﻿using SIG.ModeloDeNegocios.ModeloDeNegocios;
+﻿using SIG.Data.Entidades;
+using SIG.ModeloDeNegocios.ModeloDeNegocios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace SIG.Data.Repositorio.Interfaz
 {
     public interface IRepositorioSIG
     {
-        public List<RegistroDeBienes> ObtenerRegistroDeBienesAsync();
+        public Task<List<Usuarios>> ObtenerUsuariosAsync();
     }
 }

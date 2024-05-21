@@ -4,20 +4,28 @@ using Microsoft.Extensions.Configuration;
 using SIG.Data.SigDbContext;
 using Microsoft.Extensions.DependencyInjection;
 using Radzen.Blazor;
+using AVAIOT.SIG.Servicios.Interfaces;
+using AVAIOT.SIG.Servicios;
+using SIG.Data.Repositorio.Interfaz;
+using SIG.Data.Repositorio;
+using Radzen;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRazorPages();
+builder.Services.AddRadzenComponents();
+builder.Services.AddServerSideBlazor();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Habilitar la interactividad para toda la aplicación
+// Registrar servicios y repositorios
+builder.Services.AddScoped<IRepositorioSIG, RepositorioSIG>();
+builder.Services.AddScoped<IServicioSIG, ServicioSIG>();
 
 
 var app = builder.Build();

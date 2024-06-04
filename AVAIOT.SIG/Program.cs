@@ -27,6 +27,7 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IRepositorioSIG, RepositorioSIG>();
 builder.Services.AddScoped<IServicioSIG, ServicioSIG>();
 
+builder.WebHost.UseStaticWebAssets();
 
 var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿@page "/Usuarios"
 @using AVAIOT.SIG.Components.Layout
 @using global::SIG.ModeloDeNegocios.ModeloDeNegocios
+@inject DialogService _dialogService
 
 <PageTitle>usuarios</PageTitle>
 
@@ -9,6 +10,23 @@
 </div>
 
 <div class="container">
+    <RadzenRow Gap="4rem" Class="rz-p-0 rz-p-lg-4">
+        <RadzenColumn Size="12" SizeMD="12">
+            <RadzenStack>
+                <RadzenFieldset Text="Bienes Muebles">
+                    <RadzenStack Gap="1rem">
+                        <RadzenRow AlignItems="AlignItems.Center">
+                            <RadzenColumn Size="12" SizeMD="9">
+                                <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">                                    
+                                    <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="info" Text="Agregar Nuevo Usuario" Click="@(async () => await CrearNuevoUsuario(null))"></RadzenButton>                                    
+                                </RadzenStack>                               
+                            </RadzenColumn>
+                        </RadzenRow>
+                    </RadzenStack>
+                </RadzenFieldset>
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
     <RadzenText TextStyle="TextStyle.DisplayH5">Inventarios </RadzenText>
     <RadzenDataGrid @ref=grid
                     AllowFiltering="true"
@@ -27,6 +45,17 @@
             <RadzenDataGridColumn Property="ApellidoPaterno" Title="Apellido Paterno" />
             <RadzenDataGridColumn Property="ApellidoMaterno" Title="Apellido Materno" />
             <RadzenDataGridColumn Property="EsActivo" Title="Activo" />
+            <RadzenDataGridColumn Context="employee" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
+                <Template Context="usuarios">
+                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium"
+                                  Click="@(async () => await CrearNuevoUsuario(usuarios))">
+                    </RadzenButton>
+                </Template>
+            </RadzenDataGridColumn>
         </Columns>
     </RadzenDataGrid>
 </div>
+
+            
+@code
+{}

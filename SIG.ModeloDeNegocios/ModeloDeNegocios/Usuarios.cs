@@ -8,7 +8,7 @@ namespace SIG.ModeloDeNegocios.ModeloDeNegocios
 {
     public class Usuarios
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         public string Nombre { get; set; } = string.Empty;
         public string ApellidoPaterno { get; set; } = string.Empty;
         public string ApellidoMaterno { get; set; } = string.Empty;

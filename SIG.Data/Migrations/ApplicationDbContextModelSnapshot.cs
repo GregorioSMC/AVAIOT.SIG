@@ -44,7 +44,7 @@ namespace SIG.Data.Migrations
 
                     b.HasIndex("IdCatalogoDepartamento");
 
-                    b.ToTable("CatalogoDeEmpleados");
+                    b.ToTable("CatalogoDeEmpleados", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoDepartamento", b =>
@@ -87,7 +87,7 @@ namespace SIG.Data.Migrations
 
                     b.HasIndex("IdCatalogoDependecia");
 
-                    b.ToTable("CatalogoDepartamentos");
+                    b.ToTable("CatalogoDepartamentos", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoDependecia", b =>
@@ -125,7 +125,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogoDependecias");
+                    b.ToTable("CatalogoDependecias", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoPuestosEmpleado", b =>
@@ -146,7 +146,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogoPuestoEmpleados");
+                    b.ToTable("CatalogoPuestoEmpleados", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoRolesUsuarios", b =>
@@ -184,7 +184,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("catalogoRolesUsuarios");
+                    b.ToTable("catalogoRolesUsuarios", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoTipoDeBien", b =>
@@ -222,7 +222,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogoTipoDeBienes");
+                    b.ToTable("CatalogoTipoDeBienes", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoUbicaciones", b =>
@@ -243,7 +243,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogoUbicaciones");
+                    b.ToTable("CatalogoUbicaciones", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ERegistroFacturas", b =>
@@ -264,7 +264,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RegistroFacturas");
+                    b.ToTable("RegistroFacturas", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.EUsuarios", b =>
@@ -314,7 +314,7 @@ namespace SIG.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuarios", (string)null);
                 });
 
             modelBuilder.Entity("SIG.Data.Entidades.ECatalogoDeEmpleados", b =>

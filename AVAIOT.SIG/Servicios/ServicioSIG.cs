@@ -24,5 +24,14 @@ namespace AVAIOT.SIG.Servicios
         {
             return await _repositorioSIG.ObtenerUsuariosAsync();
         }
+
+        public async Task<Usuarios> AgregarUsuariosAsync(Usuarios usuario) 
+        {
+            return await _repositorioSIG.AgregarUsuariosAsync(usuario);
+        }
+        public async Task<Usuarios> ActualizarUsuariosAsync(Usuarios usuario) 
+        {
+            return await _repositorioSIG.ActualizarUsuariosAsync(usuario);
+        }
     }
 }

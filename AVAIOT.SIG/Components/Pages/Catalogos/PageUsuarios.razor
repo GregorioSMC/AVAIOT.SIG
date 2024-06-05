@@ -18,7 +18,7 @@
                         <RadzenRow AlignItems="AlignItems.Center">
                             <RadzenColumn Size="12" SizeMD="9">
                                 <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap" Gap="0.5rem">                                    
-                                    <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="info" Text="Agregar Nuevo Usuario" Click="@(async () => await CrearNuevoUsuario(null))"></RadzenButton>                                    
+                                    <RadzenButton ButtonStyle="ButtonStyle.Primary" Icon="info" Text="Agregar Nuevo Usuario" Click="@(async () => await AgregarUsuario(null))"></RadzenButton>                                    
                                 </RadzenStack>                               
                             </RadzenColumn>
                         </RadzenRow>
@@ -48,7 +48,7 @@
             <RadzenDataGridColumn Context="employee" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="156px">
                 <Template Context="usuarios">
                     <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium"
-                                  Click="@(async () => await CrearNuevoUsuario(usuarios))">
+                                  Click="@(async () => await ActualizarUsuario(usuarios))">
                     </RadzenButton>
                 </Template>
             </RadzenDataGridColumn>

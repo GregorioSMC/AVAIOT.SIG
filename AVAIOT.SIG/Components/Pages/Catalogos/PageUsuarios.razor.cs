@@ -8,7 +8,7 @@ using AVAIOT.SIG.Components.Pages.Modal;
 
 namespace AVAIOT.SIG.Components.Pages.Catalogos
 {
-    public partial class PageUsuarios
+    public partial class PageUsuarios 
     {
         [Inject] IServicioSIG _servicioSIG { get; set; } = null!;
         Dictionary<string, object> ParametrosDelComponenteFormulario { get; set; } = null!;
@@ -31,17 +31,41 @@ namespace AVAIOT.SIG.Components.Pages.Catalogos
 
         int orderID = 10248;
 
-        public async Task CrearNuevoUsuario(Usuarios _usuarios)
+        public async Task ActualizarUsuario(Usuarios? _usuarios)
         {
-           
+
+            Usuarios usuario = _usuarios != null ? _usuarios : new();
+
             ParametrosDelComponenteFormulario = new(){
-                {"usuario", _usuarios }               
+                {"usuario", usuario }               
             };
 
             try
             {
                 await _dialogService.OpenAsync<DialogNuevoUsuarioPage>(
-                    title: $"Modificación de Captura",
+                    title: $"Editar usuario",
+                    parameters: ParametrosDelComponenteFormulario,
+                    options: OpcionesDeConfirmacion);
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+
+            await grid.Reload();        
+        }
+
+        public async Task AgregarUsuario(Usuarios? _usuarios)
+        {
+
+            Usuarios usuario = _usuarios != null ? _usuarios : new();
+
+            ParametrosDelComponenteFormulario = new(){
+                {"usuario", usuario }
+            };
+
+            try
+            {
+                await _dialogService.OpenAsync<DialogNuevoUsuarioPage>(
+                    title: $"Nuevo Usuario",
                     parameters: ParametrosDelComponenteFormulario,
                     options: OpcionesDeConfirmacion);
 
@@ -49,28 +73,6 @@ namespace AVAIOT.SIG.Components.Pages.Catalogos
             catch (Exception ex) { Console.WriteLine(ex); }
 
             await grid.Reload();
-
-        Console.WriteLine("GSMC ==> TEST CLIC");
-        //    await DialogService.OpenAsync<DialogNuevoUsuarioPage>($"Order {orderID}",
-        //       new Dictionary<string, object>() { { "OrderID", orderID } },
-        //       new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
-        }
-
-        public async Task CrearNuevoUsuario()
-        {
-            ParametrosDelComponenteFormulario = new(){
-                {"usuario", new() }
-            };
-
-            try
-            {
-                await _dialogService.OpenAsync<DialogNuevoUsuarioPage>(
-                    title: $"Modificación de Captura",
-                    parameters: ParametrosDelComponenteFormulario,
-                    options: OpcionesDeConfirmacion);
-
-            }
-            catch (Exception ex) { Console.WriteLine(ex); }
         }
     }
 }

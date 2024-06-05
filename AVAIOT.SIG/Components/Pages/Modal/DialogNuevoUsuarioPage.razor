@@ -1,12 +1,49 @@
 ﻿@page "/AgregarNuevoUsuario/{usuario}"
 @inject Radzen.DialogService dialogService
+@inject NotificationService NotificationService
 
-<h3>Agregar Nuevo Usuario @usuario.Id</h3>
-<h3>Nombre Usuario @usuario.Nombre</h3>
-<h3>Nombre AP @usuario.ApellidoPaterno</h3>
-<h3>Nombre AM @usuario.ApellidoMaterno</h3>
-<h3>Nombre EsActivo @usuario.EsActivo</h3>
+<RadzenFieldset Text="Informacion del Usuario">
+    <RadzenStack Gap="1rem">
+
+        <RadzenRow AlignItems="AlignItems.Center">
+            <RadzenColumn Size="12" SizeMD="3">
+                <RadzenLabel Text="Nombre" Component="Nombre" />
+            </RadzenColumn>
+            <RadzenColumn Size="12" SizeMD="9">
+                <RadzenTextBox Disabled="false" Style="width: 100%;" Name="Nombre" @bind-Value="NombreUsuario" />
+            </RadzenColumn>
+        </RadzenRow>
+        
+        
+        <RadzenRow AlignItems="AlignItems.Center">
+            <RadzenColumn Size="12" SizeMD="3">
+                <RadzenLabel Text="Apellido Paterno" Component="ApellidoPaterno" />
+            </RadzenColumn>
+            <RadzenColumn Size="12" SizeMD="9">
+                <RadzenTextBox Disabled="false" Style="width: 100%;" Name="ApellidoPaterno" @bind-Value="ApUsuario" />
+            </RadzenColumn>
+        </RadzenRow>
+
+
+        <RadzenRow AlignItems="AlignItems.Center">
+            <RadzenColumn Size="12" SizeMD="3">
+                <RadzenLabel Text="Apellido Materno" Component="ApellidoMaterno" />
+            </RadzenColumn>
+            <RadzenColumn Size="12" SizeMD="9">
+                <RadzenTextBox Disabled="false" Style="width: 100%;" Name="ApellidoMaterno" @bind-Value="AmUsuario" />
+            </RadzenColumn>
+        </RadzenRow>
+        
+    </RadzenStack>
+
+    <RadzenStack Orientation="Orientation.Horizontal" JustifyContent="JustifyContent.Center" Gap="1rem" Class="rz-mt-8 rz-mb-4">
+        <RadzenButton ButtonType="ButtonType.Submit" Size="ButtonSize.Large" Icon="save" Text="Guardar" Click="@ModificarRegistroUsuario" />
+        <RadzenButton ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Large" Icon="cancel" Text="Cancelar" Click="@Cancel" />
+    </RadzenStack>
+
+</RadzenFieldset>
+
 
 @code {
-
+   
 }

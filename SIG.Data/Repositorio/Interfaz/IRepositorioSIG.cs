@@ -11,5 +11,7 @@ namespace SIG.Data.Repositorio.Interfaz
     public interface IRepositorioSIG
     {
         public Task<List<Usuarios>> ObtenerUsuariosAsync();
+        public Task<Usuarios> AgregarUsuariosAsync(Usuarios usuario);
+        public Task<Usuarios> ActualizarUsuariosAsync(Usuarios usuario);
     }
 }
